@@ -11,12 +11,6 @@ public class NauProjectApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(NauProjectApplication.class, args);
-
-
-//		ApplicationContext context = new AnnotationConfigApplicationContext(Config.class);
-//		context.getBean("commandScanner");
-//		CommandHandler bean = (CommandHandler) context.getBean(CommandHandler.class);
-//		bean.handleCommand("exit");
 	}
 
 }

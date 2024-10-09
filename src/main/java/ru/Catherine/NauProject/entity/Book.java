@@ -1,16 +1,21 @@
 package ru.Catherine.NauProject.entity;
 
+import java.util.Date;
+
 public class Book {
     private Long id;
     private String name;
     private String author;
-    private String status;
+    private BookStatus status;
+    //TODO: обработка снятия брони, продления книги
+    private Date reservingDate;
+    private Date returningDate;
 
     public Book(Long id, String name, String author) {
         this.id = id;
         this.name = name;
         this.author = author;
-        status = "in stock";
+        status = BookStatus.AVAILABLE;
     }
 
     public Long getId() {
@@ -37,11 +42,11 @@ public class Book {
         this.author = author;
     }
 
-    public String getStatus() {
+    public BookStatus getStatus() {
         return status;
     }
 
-    public void setStatus(String status) {
+    public void setStatus(BookStatus status) {
         this.status = status;
     }
 }

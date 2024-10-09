@@ -9,11 +9,11 @@ import java.util.Objects;
 
 //TODO: валидация id
 @Component
-public class BookRepository implements CrudRepository<Book, Long> {
+public class BookRepositoryImpl implements CrudRepository<Book, Long> {
     private final List<Book> bookContainer;
 
     @Autowired
-    public BookRepository(List<Book> bookContainer) {
+    public BookRepositoryImpl(List<Book> bookContainer) {
         this.bookContainer = bookContainer;
     }
 

@@ -5,10 +5,10 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class CommandHandler {
-    private final IBookManagerService bookManager;
+    private final BookManagerService bookManager;
 
     @Autowired
-    public CommandHandler(IBookManagerService bookManager) {
+    public CommandHandler(BookManagerService bookManager) {
         this.bookManager = bookManager;
     }
 
