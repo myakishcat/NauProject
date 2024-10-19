@@ -1,22 +1,33 @@
 package ru.Catherine.NauProject.entity;
 
-import java.util.Date;
+import jakarta.persistence.*;
 
+import java.util.Set;
+
+@Entity
+@Table(name = "book_tbl")
 public class Book {
+    @Id
+    @GeneratedValue
     private Long id;
-    private String name;
-    private String author;
+    @Column
+    private String title;
+    @ManyToMany
+    @JoinTable(
+            name = "book_author",
+            joinColumns = @JoinColumn(name = "book_id"),
+            inverseJoinColumns = @JoinColumn(name = "author_id")
+    )
+    private Set<Author> authors;
     private BookStatus status;
-    //TODO: обработка снятия брони, продления книги
-    private Date reservingDate;
-    private Date returningDate;
 
-    public Book(Long id, String name, String author) {
-        this.id = id;
-        this.name = name;
-        this.author = author;
+    public Book(String title, Set<Author> authors) {
+        this.title = title;
+        this.authors = authors;
         status = BookStatus.AVAILABLE;
     }
+
+    public Book() {    }
 
     public Long getId() {
         return id;
@@ -26,20 +37,20 @@ public class Book {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getTitle() {
+        return title;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
-    public String getAuthor() {
-        return author;
+    public Set<Author> getAuthors() {
+        return authors;
     }
 
-    public void setAuthor(String author) {
-        this.author = author;
+    public void setAuthors(Set<Author> authors) {
+        this.authors = authors;
     }
 
     public BookStatus getStatus() {
@@ -48,5 +59,13 @@ public class Book {
 
     public void setStatus(BookStatus status) {
         this.status = status;
+    }
+
+    public void addAuthor(Author author){
+        this.authors.add(author);
+    }
+
+    public void removeAuthor(Author author){
+        this.authors.remove(author);
     }
 }

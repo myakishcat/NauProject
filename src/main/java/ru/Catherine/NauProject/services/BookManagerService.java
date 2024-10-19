@@ -13,4 +13,9 @@ public interface BookManagerService {
     void checkDate();
     BookStatus checkStatus(Long id);
     void changeStatus(Long id, BookStatus status);
+    /**
+     * Удаляет книгу по названию
+     * @param name название книги
+     */
+    void deleteBookByTitle(String name);
 }

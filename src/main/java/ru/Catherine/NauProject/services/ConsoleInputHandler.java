@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 import java.util.Scanner;
 
 @Component
-public class ConsoleInputHandler implements CommandLineRunner{
+public class ConsoleInputHandler {  //implements CommandLineRunner
     private final CommandHandler commandHandler;
     @Autowired
     public ConsoleInputHandler(CommandHandler commandHandler) {
@@ -30,8 +30,8 @@ public class ConsoleInputHandler implements CommandLineRunner{
         }
     }
 
-    @Override
-    public void run(String... args) throws Exception {
-        commandScanner();
-    }
+//    @Override
+//    public void run(String... args) {
+//        commandScanner();
+//    }
 }
